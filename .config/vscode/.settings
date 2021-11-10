@@ -1,0 +1,139 @@
+
+{
+    // Settings
+    "workbench.settings.editor": "json",
+
+    // General
+    "update.mode": "none",
+    "extensions.autoCheckUpdates": true,
+
+    // Editor
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.renderIndentGuides": true,
+    "editor.renderWhitespace":"none",
+    "editor.copyWithSyntaxHighlighting": false,
+    "editor.suggestSelection": "first",
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "SF Mono",
+    "editor.fontSize": 16,
+    "editor.fontLigatures": false,
+    "diffEditor.renderSideBySide": false,
+
+    // Workbench
+    "files.autoSaveDelay": 1000,
+    "files.trimTrailingWhitespace": true,
+    "files.autoSave": "afterDelay",
+    "files.insertFinalNewline": true,
+    "files.associations": {
+        "Dockerfile-centos": "dockerfile",
+        "Dockerfile_*": "dockerfile",
+        "Dockerfile-*": "dockerfile",
+        "*.tf.template": "terraform",
+        "*.yaml.template": "yaml"
+    },
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/*.pyc": true,
+      "**/__pycache__": true,
+      "**/.cache": true,
+      "**/.vscode": true,
+      "**/env": true,
+      "**/*.egg-info": true,
+      "**/*.log": true,
+      "**/*.py.bak": true,
+      "**/.idea": true,
+    },
+
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.closeEmptyGroups": true,
+    "workbench.tips.enabled": false,
+    "workbench.startupEditor": "none",
+    "workbench.statusBar.feedback.visible":false,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#0059ffa4",
+        "tab.activeBackground": "#077bf73e",
+        "tab.activeBorder": "#fffb0050",
+        "gitDecoration.ignoredResourceForeground": "#706e6e"
+    },
+    "breadcrumbs.enabled": true,
+
+    // Terminal
+    "terminal.integrated.showExitAlert": false,
+    "terminal.integrated.fontFamily": "Menlo",
+    "terminal.integrated.fontSize": 15,
+    "terminal.integrated.fontWeight": "100",
+    "terminal.integrated.shell.osx": "/bin/zsh",
+
+    // Debugger
+    // "debug.node.autoAttach": "on",
+    "debug.toolBarLocation": "docked",
+    "debug.openExplorerOnEnd": true,
+
+    // MARKDOWN files
+    "[markdown]":{
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": false,
+        "editor.minimap.enabled": true
+    },
+    "explorer.confirmDelete": false,
+    "python.jediEnabled": false,
+    "vsintellicode.modify.editor.suggestSelection": "choseToUpdateConfiguration",
+    "workbench.iconTheme": "material-icon-theme",
+
+    // Plugins
+    "better-comments.multilineComments": true,
+    "better-comments.highlightPlainText": false,
+    "better-comments.tags": [
+        {
+          "tag": "!",
+          "color": "#FF2D00",
+          "strikethrough": false,
+          "backgroundColor": "transparent"
+        },
+        {
+          "tag": "?",
+          "color": "#3498DB",
+          "strikethrough": false,
+          "backgroundColor": "transparent"
+        },
+        {
+          "tag": "//",
+          "color": "#474747",
+          "strikethrough": true,
+          "backgroundColor": "transparent"
+        },
+        {
+          "tag": "todo",
+          "color": "#FF8C00",
+          "strikethrough": false,
+          "backgroundColor": "transparent"
+        },
+        {
+          "tag": "*",
+          "color": "#98C379",
+          "strikethrough": false,
+          "backgroundColor": "transparent"
+        }
+      ],
+      "go.formatTool": "goimports",
+      "go.useLanguageServer": true,
+      "explorer.confirmDragAndDrop": false,
+      "kite.showWelcomeNotificationOnStartup": false,
+      "javascript.updateImportsOnFileMove.enabled": "always",
+      "workbench.editorAssociations": [
+        {
+          "viewType": "jupyter-notebook",
+          "filenamePattern": "*.ipynb"
+        }
+      ],
+    "python.languageServer": "Microsoft",
+    "python.showStartPage": false,
+    "snyk.token": "3b09e229-8d80-4113-9e5f-9e02d478dc07",
+    "snyk.yesWelcomeNotification": false,
+    "snyk.yesCrashReport": false,
+    "react-native-tools.showUserTips": false,
+}
