@@ -10,11 +10,10 @@ export LANG=en_US.UTF-8
 
 # Setting the terminal colors
 export TERM="xterm-256color"
+
 unset LSCOLORS
 export CLICOLOR=1
 export CLICOLOR_FORCE=1
-# export GREP_OPTIONS="--color=always"
-# export GREP_COLOR="1;35;40"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -76,7 +75,8 @@ HIST_STAMPS="mm/dd/yyyy"
 
 # Preferred editor for local and remote sessions
 if type nvim > /dev/null 2>&1; then
-    alias vim='nvim'; alias vi='nvim'
+    alias vim='nvim'
+    alias vi='nvim'
 fi
 
 if [[ -n $SSH_CONNECTION ]]; then
@@ -88,6 +88,7 @@ case `uname` in
     Darwin*)
         # MacOS specific settings
         LOCAL_DIRECTORY="/usr/local"
+
         # Plugins
         plugins=(
             git
@@ -101,6 +102,7 @@ case `uname` in
     Linux*)
         # Linux specific settings
         LOCAL_DIRECTORY="/home/linuxbrew/.linuxbrew"
+
         # Plugins
         plugins=(
             git
