@@ -2,7 +2,7 @@
 
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
-let g:NERDTreeIgnore = ['\.pyc$', '\~$', '_accounts', 'node_modules']
+let g:NERDTreeIgnore = ['\.pyc$', '.git', '.env', '\~$', '_accounts', 'node_modules']
 let g:NERDTreeStatusline = ''
 " let NERDTreeMapOpenInTab='<ENTER>'
 

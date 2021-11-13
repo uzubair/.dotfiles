@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 if [[ -z ${STOW_FOLDERS} ]]; then
     STOW_FOLDERS="bin,git,nvim,tmux,zsh"
@@ -11,9 +11,6 @@ fi
 pushd ${DOTFILES}
 for folder in $(echo ${STOW_FOLDERS} | sed "s/,/ /g")
 do
-    echo "Removing ${folder}"
-    stow -D ${folder}
-
     echo "Installing ${folder}"
     stow ${folder}
 done
