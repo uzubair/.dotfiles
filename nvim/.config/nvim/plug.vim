@@ -47,6 +47,9 @@ if has("nvim")
   Plug 'phaazon/hop.nvim'
   Plug 'mfussenegger/nvim-dap'
   Plug 'romainl/vim-qf'
+
+
+  Plug 'dbeniamine/cheat.sh-vim'
 endif
 
 call plug#end()
