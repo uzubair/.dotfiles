@@ -1,6 +1,15 @@
 ### If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/opt/tcl-tk/bin:$PATH
 
+# zsh-autocomplete plugin settings
+source ~/workspace/git/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+case `uname` in
+    Linux*)
+        skip_global_compinit=1
+    ;;
+esac
+
 ### ZSH settings
 export ZSH="${HOME}/.oh-my-zsh"
 export XDG_CONFIG_HOME="${HOME}/.config"
@@ -94,6 +103,7 @@ case `uname` in
             git
             osx
             aws
+            zsh-autocomplete
             zsh-autosuggestions
             zsh-syntax-highlighting
             z
@@ -106,6 +116,7 @@ case `uname` in
         # Plugins
         plugins=(
             git
+            zsh-autocomplete
             aws
             z
         )
