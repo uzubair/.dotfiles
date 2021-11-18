@@ -103,7 +103,6 @@ case `uname` in
             git
             osx
             aws
-            zsh-autocomplete
             zsh-autosuggestions
             zsh-syntax-highlighting
             z
@@ -116,7 +115,6 @@ case `uname` in
         # Plugins
         plugins=(
             git
-            zsh-autocomplete
             aws
             z
         )
