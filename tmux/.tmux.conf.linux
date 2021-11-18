@@ -1,6 +1,6 @@
 # Use vim keybindings in copy mode
 
-set-option -g status-position top
+set-option -g status-position bottom
 set-option -s set-clipboard off
 bind P paste-buffer
 bind-key -T copy-mode-vi v send-keys -X begin-selection
