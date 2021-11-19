@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "Resetting dev environment..."
+
 if [[ -z ${STOW_FOLDERS} ]]; then
     STOW_FOLDERS="bin,git,nvim,tmux,zsh,kitty"
 fi
@@ -8,10 +10,15 @@ if [[ -z ${DOTFILES} ]]; then
     DOTFILES=${HOME}/.dotfiles
 fi
 
-pushd ${DOTFILES}
+pushd ${DOTFILES} > /dev/null
 for folder in $(echo ${STOW_FOLDERS} | sed "s/,/ /g")
 do
     echo "Removing ${folder}"
     stow -D ${folder}
 done
-popd
+popd > /dev/null
+
+echo "Removing exported variables..."
+unset KITTY_OS_CONFIG
+
+echo "Done."

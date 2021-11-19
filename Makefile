@@ -2,6 +2,6 @@
 install: cleanup
 	./scripts/install.sh
 
-.PHONY: cleanup
+.PHONY:
 cleanup:
 	./scripts/cleanup.sh
