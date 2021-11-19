@@ -25,6 +25,7 @@ Gemfile.lock
 node_modules
 bower_components
 fishd.*
+bin/.local/bin/kitty
 
 # Vim
 Session.vim
