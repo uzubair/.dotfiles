@@ -25,8 +25,4 @@ do
 done
 popd > /dev/null
 
-echo "Exporting custom env variables..."
-# kitty
-export KITTY_OS_CONFIG="kitty.${OS_TYPE}.conf"
-
 echo "Done."

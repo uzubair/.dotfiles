@@ -96,20 +96,20 @@ fi
 case `uname` in
     Darwin*)
         # MacOS specific settings
+        export KITTY_OS_CONFIG="kitty.darwin.conf"
         LOCAL_DIRECTORY="/usr/local"
 
         # Plugins
         plugins=(
             git
-            osx
+            macos
             aws
-            zsh-autosuggestions
-            zsh-syntax-highlighting
             z
         )
     ;;
     Linux*)
         # Linux specific settings
+        export KITTY_OS_CONFIG="kitty.linux.conf"
         LOCAL_DIRECTORY="/home/linuxbrew/.linuxbrew"
 
         # Plugins

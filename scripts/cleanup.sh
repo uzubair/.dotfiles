@@ -18,7 +18,4 @@ do
 done
 popd > /dev/null
 
-echo "Removing exported variables..."
-unset KITTY_OS_CONFIG
-
 echo "Done."
