@@ -1,18 +1,10 @@
 ### If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/opt/tcl-tk/bin:$PATH
 
-# zsh-autocomplete plugin settings
-source ~/workspace/git/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-
-case `uname` in
-    Linux*)
-        skip_global_compinit=1
-    ;;
-esac
-
 ### ZSH settings
 export ZSH="${HOME}/.oh-my-zsh"
 export XDG_CONFIG_HOME="${HOME}/.config"
+export OS_TYPE=$(uname|tr A-Z a-z)
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -92,44 +84,42 @@ if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vim'
 fi
 
-# System specific settings
-case `uname` in
-    Darwin*)
-        # MacOS specific settings
+# Plugins
+plugins=(
+    git
+    aws
+    z
+)
+
+# OS specific settings
+case ${OS_TYPE} in
+    darwin)
+        # MacOS settings
         export KITTY_OS_CONFIG="kitty.darwin.conf"
-        LOCAL_DIRECTORY="/usr/local"
+        export HOMEBREW_PREFIX="/usr/local"
 
-        # Plugins
-        plugins=(
-            git
-            macos
-            aws
-            z
-        )
-    ;;
-    Linux*)
-        # Linux specific settings
+        plugins+=(macos)
+        ;;
+    linux)
+        # Linux settings
         export KITTY_OS_CONFIG="kitty.linux.conf"
-        LOCAL_DIRECTORY="/home/linuxbrew/.linuxbrew"
+        export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
 
-        # Plugins
-        plugins=(
-            git
-            aws
-            z
-        )
-    ;;
+        skip_global_compinit=1
+        ;;
 esac
 
 source $ZSH/oh-my-zsh.sh
-source $LOCAL_DIRECTORY/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $LOCAL_DIRECTORY/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $LOCAL_DIRECTORY/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $HOME/workspace/git/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-[ -f $LOCAL_DIRECTORY/etc/profile.d/autojump.sh ] && . $LOCAL_DIRECTORY/etc/profile.d/autojump.sh
+[ -f $HOMEBREW_PREFIX/etc/profile.d/autojump.sh ] && . $HOMEBREW_PREFIX/etc/profile.d/autojump.sh
 
 # Language envs
 if which pyenv-init > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 export PATH=$(pyenv root)/shims:$PATH
+
