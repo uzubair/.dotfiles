@@ -12,7 +12,7 @@ lua << EOF
 require('telescope').setup{
   defaults = {
     file_sorter = require('telescope.sorters').get_fzy_sorter,
-    prompt_prefix = ' >',
+    prompt_prefix = ' > ',
     color_devicons = true,
 
     file_previewer = require('telescope.previewers').vim_buffer_cat.new,
@@ -34,10 +34,10 @@ require('telescope').setup{
 }
 EOF
 
-nnoremap <leader>ff :lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>ff :lua require('telescope.builtin').find_files( {hidden=true} )<cr>
 nnoremap <leader>fg :lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>fr :lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fp :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For >") })<cr>
+nnoremap <leader>fp :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ") })<cr>
 nnoremap <leader>fb :lua require('telescope.builtin').file_browser()<cr>
 nnoremap <leader>fu :lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh :ua require('telescope.builtin').help_tags()<cr>
