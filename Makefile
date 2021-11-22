@@ -1,7 +1,11 @@
+.PHONY: setup
+setup:
+	./dist/setup.sh
+
 .PHONY: install
 install: cleanup
-	./scripts/install.sh
+	./dist/install.sh
 
 .PHONY:
 cleanup:
-	./scripts/cleanup.sh
+	./dist/cleanup.sh
