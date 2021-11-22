@@ -6,17 +6,17 @@
 
 Clone this repository into your home directory.
 
-```bash
+```
 cd ~
 git clone git@github.com/.dotfiles
 ```
 
 To setup a new machine, run the following command:
-```bash
+```
 make setup
 ```
 
 To only install the dotfiles, run the following command:
-```bash
+```
 make install
 ```
