@@ -2,11 +2,11 @@
 
 echo "Setting dev environment..."
 
-if [[ -z ${OS_TYPE} ]]; then
+if [[ -z ${OS_FAMILY} ]]; then
     echo "Identifying operating system..."
 
-    OS_TYPE=$(uname | tr A-Z a-z)
-    echo "Loading '${OS_TYPE}' configurations..."
+    OS_FAMILY=$(uname | tr A-Z a-z)
+    echo "Loading '${OS_FAMILY}' configurations..."
 fi
 
 if [[ -z ${STOW_FOLDERS} ]]; then
@@ -20,7 +20,10 @@ fi
 pushd ${DOTFILES} > /dev/null
 for folder in $(echo ${STOW_FOLDERS} | sed "s/,/ /g")
 do
-    echo "Installing ${folder}"
+    echo "Removing ${folder}..."
+    stow -D ${folder}
+
+    echo "Installing ${folder}..."
     stow ${folder}
 done
 popd > /dev/null

@@ -4,7 +4,7 @@ export PATH=$HOME/bin:/usr/local/bin:/usr/local/opt/tcl-tk/bin:$PATH
 ### ZSH settings
 export ZSH="${HOME}/.oh-my-zsh"
 export XDG_CONFIG_HOME="${HOME}/.config"
-export OS_TYPE=$(uname|tr A-Z a-z)
+export OS_FAMILY=$(uname|tr A-Z a-z)
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -92,10 +92,10 @@ plugins=(
 )
 
 # OS specific settings
-case ${OS_TYPE} in
+case ${OS_FAMILY} in
     darwin)
         # MacOS settings
-        export KITTY_OS_CONFIG="kitty.darwin.conf"
+        export KITTY_OS_CONFIG="kitty.macos.conf"
         export HOMEBREW_PREFIX="/usr/local"
 
         plugins+=(macos)

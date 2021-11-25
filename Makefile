@@ -1,11 +1,10 @@
+# Setup a new machine
 .PHONY: setup
 setup:
-	./dist/setup.sh
+	./setup.sh
 
+# Install only the dotfiles
 .PHONY: install
-install: cleanup
+install:
 	./dist/install.sh
 
-.PHONY:
-cleanup:
-	./dist/cleanup.sh
