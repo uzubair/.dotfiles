@@ -6,7 +6,7 @@ if [[ -z ${ZSH} ]]; then
     export ZSH="${HOME}/.oh-my-zsh"
 fi
 
-basedir=$(dirname $0)
+basedir=$(dirname $1)
 
 themes=(
     "cdimascio-lambda.zsh-theme"

@@ -96,6 +96,12 @@ local function setup_servers()
   -- ... and add manually installed servers
   table.insert(servers, "clangd")
   table.insert(servers, "sourcekit")
+  table.insert(servers, "bashls")
+  table.insert(servers, "pyright")
+  table.insert(servers, "yamlls")
+  table.insert(servers, "gopls")
+  table.insert(servers, "dockerls")
+  table.insert(servers, "jsonls")
 
   for _, server in pairs(servers) do
     local config = make_config()
@@ -109,6 +115,9 @@ local function setup_servers()
     end
     if server == "clangd" then
       config.filetypes = {"c", "cpp"}; -- we don't want objective-c and objective-cpp!
+    end
+    if server == "pyright" then
+      config.filetypes = {"py"};
     end
 
     require'lspconfig'[server].setup(config)

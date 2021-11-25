@@ -2,7 +2,29 @@
 
 set -euo pipefail
 
-# Helper functions
+here=$(dirname "${BASH_SOURCE[0]}")
+
+################## Helper functions
+
+intall_vscode_extensions() {
+    echo "Installing VSCode extension ..."
+    cat $here/vscode/extensions.list | xargs -L 1 code --install-extension --force
+}
+
+install_zsh_theme() {
+    if [[ -z ${ZSH} ]]; then
+        export ZSH="${HOME}/.oh-my-zsh"
+    fi
+
+    themes=(
+        "cdimascio-lambda.zsh-theme"
+    )
+
+    for theme in ${themes[@]}; do
+        echo "Installing theme '${theme}' ..."
+        cp $here/zsh/themes/${theme} ${ZSH}/themes/${theme}
+    done
+}
 
 update_shell() {
     local shell_path;
@@ -16,14 +38,12 @@ update_shell() {
     sudo chsh -s "$shell_path" "$USER"
 }
 
-# Entrypoint
-
-here=$(dirname "${BASH_SOURCE[0]}")
+################## Entrypoint
 
 echo "Is homebrew installed?"
 if ! command -v brew > /dev/null; then
     echo "==> Installing Homebrew..."
-    if [[ "${OS_TYPE}" = darwin* ]]; then
+    if [[ "${OS_FAMILY}" = darwin* ]]; then
         curl -fsS 'https://raw.githubusercontent.com/Homebrew/install/master/install' | ruby
     else
         curl -fsSL 'https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh' | sh -c
@@ -35,11 +55,15 @@ fi
 echo "Is ZSH the default shell?"
 case "$SHELL" in
     */zsh)
-        if [ "$(command -v zsh)" != '/usr/local/bin/zsh' ] ; then
-            echo "==> Updating shell to ZSH..."
-            update_shell
+        if [ "$(echo $SHELL)" == '/usr/bin/zsh'] ; then
+            echo "ZSH is set as the default shell..."
         else
-            echo "==> ZSH is set as the default shell..."
+            if [ "$(command -v zsh)" != '/usr/local/bin/zsh' ] ; then
+                echo "==> Updating shell to ZSH..."
+                update_shell
+            else
+                echo "==> ZSH is set as the default shell..."
+            fi
         fi
         ;;
     *)
@@ -50,9 +74,6 @@ esac
 
 echo "==> Installing Homebrew dependencies..."
 brew bundle
-
-echo "==> Removing dotfiles..."
-$here/cleanup.sh
 
 echo "==> Installing dotfiles..."
 $here/install.sh
