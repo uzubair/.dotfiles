@@ -41,7 +41,7 @@ if has("nvim")
   Plug 'nvim-telescope/telescope-fzy-native.nvim'
   Plug 'hrsh7th/nvim-cmp'
   Plug 'neovim/nvim-lspconfig'
-  Plug 'kabouzeid/nvim-lspinstall'
+  Plug 'williamboman/nvim-lsp-installer'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'phaazon/hop.nvim'
