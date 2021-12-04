@@ -54,5 +54,5 @@
   smudge = git-lfs smudge -- %f
   required = true
   process = git-lfs filter-process
-[url "git@gitlab.com:"]
-  insteadOf = https://gitlab.com/
+# [url "git@gitlab.com:"]
+#   insteadOf = https://gitlab.com/

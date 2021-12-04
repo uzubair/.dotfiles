@@ -17,7 +17,8 @@ install_zsh_theme() {
     fi
 
     themes=(
-        "cdimascio-lambda.zsh-theme"
+        "cdimascio-lambda.zsh-theme",
+        "mycustom.zsh-theme"
     )
 
     for theme in ${themes[@]}; do
