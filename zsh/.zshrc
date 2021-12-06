@@ -16,11 +16,14 @@ unset LSCOLORS
 export CLICOLOR=1
 export CLICOLOR_FORCE=1
 
+autoload -U promptinit; promptinit
+prompt pure
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="cdimascio-lambda"
+# ZSH_THEME="pure"
 
 # Uncomment the following line to show "user@hostname" in the prompt.
 DEFAULT_USER="uzubair"
@@ -89,6 +92,7 @@ plugins=(
     git
     aws
     z
+    kubectl
 )
 
 # OS specific settings
@@ -110,8 +114,8 @@ case ${OS_FAMILY} in
 esac
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/workspace/git/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $HOME/workspace/git/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
@@ -122,4 +126,9 @@ if which pyenv-init > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 export PATH=$(pyenv root)/shims:$PATH
+
+. /usr/local/opt/asdf/libexec/asdf.sh
+
+source $HOME/.oh-my-zsh/custom/aliases
+source $HOME/.oh-my-zsh/custom/helper_functions
 
