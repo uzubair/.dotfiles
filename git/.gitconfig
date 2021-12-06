@@ -1,6 +1,6 @@
 [user]
   name = Usman Zubair
-  email = uzubair@gmail.com
+  email = uzubair@miovision.com
 [core]
   excludesfile = ~/.gitignore
   editor = nvim
@@ -54,7 +54,4 @@
   smudge = git-lfs smudge -- %f
   required = true
   process = git-lfs filter-process
-[url "git@gitlab.com:"]
-  insteadOf = https://gitlab.com/
-[url "git@github.com:"]
-  insteadOf = https://github.com/
+
