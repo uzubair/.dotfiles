@@ -123,6 +123,18 @@ prompt_status() {
   [[ -n "$symbols" ]] && prompt_segment default black "$symbols "
 }
 
+# K8s
+prompt_k8s() {
+  if [[ -n "$(command -v kubectl)" ]]; then
+    local k8s_current_cfg=$(kubectl config current-context 2> /dev/null)
+    [[ -z "$k8s_current_cfg" ]] && return
+    case "$k8s_current_cfg" in
+      *-prod|*production*) prompt_segment default red "[k8s:$k8s_current_cfg]" ;;
+      *) prompt_segment default yellow "[k8s:$k8s_current_cfg]" ;;
+    esac
+  fi
+}
+
 # AWS Profile:
 # - display current AWS_PROFILE name
 # - displays yellow on red if profile name contains 'production' or
@@ -148,6 +160,7 @@ build_prompt() {
   RETVAL=$?
   prompt_status
   prompt_aws
+  prompt_k8s
   prompt_pyenv
   prompt_git
   prompt_newline

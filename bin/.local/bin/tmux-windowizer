@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Thanks to ThePrimeagen
-# URL https://raw.githubusercontent.com/ThePrimeagen/.dotfiles/master/bin/.local/bin/tmux-windowizer
-
 branch_name=$(basename $1)
 session_name=$(tmux display-message -p "#S")
 

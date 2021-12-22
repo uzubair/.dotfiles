@@ -16,3 +16,6 @@ for theme in ${themes[@]}; do
     echo "Installing theme '${theme}' ..."
     cp ${basedir}/themes/${theme} ${ZSH}/themes/${theme}
 done
+
+echo "Copying aliases..."
+cp ${basedir}/aliases ${ZSH}/custom/aliases
