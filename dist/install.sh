@@ -10,7 +10,7 @@ if [[ -z ${OS_FAMILY} ]]; then
 fi
 
 if [[ -z ${STOW_FOLDERS} ]]; then
-    STOW_FOLDERS="bin,git,nvim,tmux,zsh,kitty"
+    STOW_FOLDERS="bin,git,nvim,tmux,zsh,kitty,rofi"
 fi
 
 if [[ -z ${DOTFILES} ]]; then
