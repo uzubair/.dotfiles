@@ -97,7 +97,7 @@ case ${OS_FAMILY} in
     darwin)
         # MacOS settings
         export KITTY_OS_CONFIG="kitty.macos.conf"
-        export HOMEBREW_PREFIX="/usr/local"
+        export HOMEBREW_PREFIX="/opt/homebrew"
 
         plugins+=(macos)
         ;;
@@ -115,8 +115,8 @@ source $HOME/workspace/git/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-source $HOME/.oh-my-zsh/custom/aliases
-source $HOME/.oh-my-zsh/custom/helper_functions
+# source $HOME/.oh-my-zsh/custom/aliases
+# source $HOME/.oh-my-zsh/custom/helper_functions
 
 [ -f $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh ] && . $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
 [ -f $HOMEBREW_PREFIX/etc/profile.d/autojump.sh ] && . $HOMEBREW_PREFIX/etc/profile.d/autojump.sh
