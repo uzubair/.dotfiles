@@ -1,5 +1,5 @@
 ### If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/opt/tcl-tk/bin:$PATH
+export PATH=$HOME/.local/bin/$HOME/bin:/usr/local/bin:/usr/local/opt/tcl-tk/bin:$PATH
 
 ### ZSH settings
 export ZSH="${HOME}/.oh-my-zsh"
@@ -20,7 +20,7 @@ export CLICOLOR_FORCE=1
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="mycustom" #cdimascio-lambda"
+ZSH_THEME="cdimascio-lambda" #"mycustom"
 
 # Uncomment the following line to show "user@hostname" in the prompt.
 DEFAULT_USER="uzubair"
@@ -127,3 +127,12 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 
 export PATH=$(pyenv root)/shims:$PATH
 
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/Cellar/tfenv/2.2.3/versions/1.1.0/terraform terraform
+
+
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
+export PATH="$HOME/.poetry/bin:$PATH"
